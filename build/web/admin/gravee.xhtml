@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Grave</title>
+        <h:outputStylesheet name="bootstrap-4.4.1-dist/css/bootstrap.min.css"/>
+        <h:outputStylesheet name="bootstrap-4.4.1-dist/js/bootstrap.min.js"/>
+
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <h4 class="navbar-brand"> This record grave and Person and Cemetery </h4>
+                </nav>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col mt-5">
+                        <div class="form-group">
+                            <h:outputLabel  value="Person"/>
+                            <h:selectOneMenu styleClass="form-control" value="#{bury.deadPerson.personID}">
+
+                                <f:selectItems value="#{bury.mapPerson.entrySet()}" var="p" itemValue="#{p.key}" itemLabel="#{p.key} -> #{p.value}"/>
+
+                            </h:selectOneMenu>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel value="Irimbi "/>
+                            <h:selectOneMenu styleClass="form-control" value="#{bury.cemetery.irimbiNo}">
+                                <f:selectItems value="#{mbi.cemeteryMap.entrySet()}" var="ir" itemValue="#{ir.key}" itemLabel="#{ir.value}" />
+                            </h:selectOneMenu>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel value=" Date"/>
+                            <h:inputText styleClass="form-control" value="#{bury.imva.burialDate}" required="true" requiredMessage="needed">
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:inputText>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <h:commandButton class="btn btn-dark btn-block" value="Save" action="#{bury.saveImva()}"/>
+                            </div>
+                            <div class="form-group col">
+                                <h:commandButton class="btn btn-success btn-block" value="update" action="#{bury.updateGrave()}" />
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="col"></div>
+                </div>
+
+            </div>
+            
+        </h:form>
+        <footer class="page-footer font-small cyan darken-3 bg-dark">
+            <div  class="footer-copyright text-center py-3 ">@ 2020 Copyright:NGABO
+
+            </div>
+        </footer>
+    </h:body>
+</html>
+

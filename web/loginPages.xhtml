@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="bootstrap-4.4.1-dist/css/bootstrap.min.css"/>
+        <h:outputScript name="jquery-3.5.1.js"/>
+        <h:outputStylesheet name="fontawesome/css/all.css"/>
+        <style>
+            .Bimage{
+                background-image:url(#{request.contextPath}/resources/images/bkgrd.jpg);
+                background-size: cover;
+            }
+            *{
+                border-radius: 0 !important;
+            }
+
+        </style>
+    </h:head>
+    <h:body styleClass="Bimage">
+        <h:form >
+            <div class="row">
+                <div class="col col-md col-sm"></div>
+                <div class="col-12 col-md-4 col-sm-8 card bg-light mt-5 py-4 ">
+                    <h4>Manager Login</h4>
+                    <div class="  mb-3 px-2">
+                        <div class="form-group">
+                            <h:outputLabel value="Username"/>
+                            <h:inputText styleClass="form-control" value="#{lm.username}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel value="Password"/>
+                            <h:inputSecret styleClass="form-control" value="#{lm.password}"/>
+                        </div>
+                        <h:commandButton class="btn btn-dark" value="Login" action="#{lm.login()}"/>
+                    </div>
+                </div>
+                <div class="col col-md col-sm"></div>
+            </div>
+            <!--<h:outputScript name="js/bootstrap.min.js"/> -->
+            <h:outputScript name="fontawesome/js/all.js"/>
+            <div class="btn btn-light">
+                <h:commandLink value="Go To Add Manager" action="index.xhtml?faces-redirect=true"/>
+            </div>
+        </h:form>
+
+    </h:body>
+    <footer class="page-footer font-small cyan darken-3 ">
+        <div  class="footer-copyright text-center py-3 ">@ 2020 Copyright:NGABO
+
+        </div>
+    </footer>
+</html>
+

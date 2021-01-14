@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Home</title>
+        <h:outputStylesheet name="bootstrap-4.4.1-dist/css/bootstrap.min.css"/>
+    </h:head>
+    <h:body style="background-color: black">
+        <div>
+            <h:form>
+                <div class="row">
+                    <div class="col col-md col-sm"></div>
+                    <div class="col-12 col-md-4 col-sm-8 card bg-light mt-5 py-4 ">
+                        <h4>Add new Manager</h4>
+                        <div class="  mb-3 px-2">
+                            <div class="form-group">
+                                <h:outputLabel value="Username"/>
+                                <h:inputText styleClass="form-control" value="#{lm.info.userName}"/>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel value="Password"/>
+                                <h:inputSecret styleClass="form-control" value="#{lm.info.password}"/>
+                            </div>
+                            <h:commandButton class="btn btn-dark" value="ADD" action="#{lm.addUser()}"/>
+                        </div>
+                    </div>
+                    <div class="col col-md col-sm"></div>
+                </div>
+                <div class="btn btn-light">
+                    <h:commandLink value="Go To Login" action="loginPages.xhtml?faces-redirect=true"/>
+                </div>
+                
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

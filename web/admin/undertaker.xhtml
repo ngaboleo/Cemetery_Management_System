@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Undertaker</title>
+        <h:outputStylesheet name="bootstrap-4.4.1-dist/css/bootstrap.min.css"/>
+        <h:outputStylesheet name="bootstrap-4.4.1-dist/js/bootstrap.min.js"/>
+        <style>
+            .Bimage{
+                background-image:url(#{request.contextPath}/resources/images/deabkg.jpg);
+                background-size: cover;
+            }
+        </style>
+    </h:head>
+    <h:body styleClass="">
+        <ui:decorate template="adminLayouts.xhtml">
+            <ui:define name="content">
+
+
+                <div class="container" >
+                    <h:form>
+
+                        <div class="row">
+
+                            <div class="col-4">
+
+                                <div class="form-group has-success">
+                                    <h:outputLabel value="Id Card"/>
+                                    <h:inputText styleClass="form-control" value="#{man.deadPersonal.idCard}" required="true" requiredMessage="id ry'uwitabye Imana"/>
+                                </div>
+                                <div class="form-group has-success">
+                                    <h:outputLabel value="Dead Personal Name"/>
+                                    <h:inputText styleClass="form-control" value="#{man.deadPersonal.personName}" required="true" requiredMessage="id ry'uwitabye Imana"/>
+
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel value="Ushyingura"/>
+                                    <h:inputText styleClass="form-control" value="#{man.deadPersonal.undertaker.name}" required="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel value="Gender"/>
+                                    <h:inputText styleClass="form-control" value="#{man.deadPersonal.gender}" required="true"/>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <h:outputLabel value="Dead Date"/>
+                                    <h:inputText styleClass="form-control" value="#{man.deadPersonal.dod}" required="true" requiredMessage="id ry'uwitabye Imana">
+                                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                    </h:inputText>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel  value="Birth Date"/>
+                                    <h:inputText styleClass="form-control" value="#{man.deadPersonal.dob}" required="true">
+                                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                    </h:inputText>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel value="Contact"/>
+                                    <h:inputText styleClass="form-control" value="#{man.deadPersonal.undertaker.contact}" required="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel value="Email"/>
+                                    <h:inputText styleClass="form-control" value="#{man.deadPersonal.undertaker.email}" required="true"/>
+                                </div>
+                            </div>
+                        </div>
+                        <h:form>
+                            <div class="container">
+                                <div class="row">
+
+                                    <div class="col-4"> 
+                                        <div class="form-group">
+                                            <h:commandButton class="btn btn-dark btn-block" value="submit" action="#{man.registration()}"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <h:commandButton class="btn btn-dark btn-block" value="update" action="#{man.updateUndertaker()}" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </h:form>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:decorate>
+
+    </h:body>
+
+</html>
+

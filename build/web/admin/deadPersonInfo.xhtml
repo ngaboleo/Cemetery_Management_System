@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>DeadPersonInfo</title>
+        <h:outputStylesheet name="bootstrap-4.4.1-dist/css/bootstrap.min.css"/>
+        <h:outputStylesheet name="bootstrap-4.4.1-dist/js/bootstrap.min.js"/>
+    </h:head>
+    <h:body>
+        <div class="container mt-5" >
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <h4 class="navbar-brand"> These are registered dead Persons and thier undertaker </h4>
+            </nav>
+            <h:form class="form-inline" style="float: right">
+                <h:inputText value="#{man.pname}" class="form-control mr-sm-2" a:placeholder="search by name" style="margin: 9px;"/>
+                <h:commandButton action="#{man.findAll()}" class="btn btn-success" type="submit" value="search"/>
+            </h:form>
+            <h:form>
+                <table class="table table-info table-striped table-hover table-condensed">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th>NAME</th>
+                            <th>SYSTEM NUMBER</th>
+                            <th>UMUSHYINGURA</th>
+                            <th>CONTACT</th>
+                            <th>EMAIL</th>
+                            <th>DEAD DATE</th>
+                            <th>BIRTH DATE</th>
+                            <th>GENDER</th>
+                            <th>STATUS</th>
+                            <th>CHANGE</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ui:repeat value="#{man.deadPersonals}" var="d">
+                            <tr>
+                                <td>#{d.personName}</td>
+                                <td>#{d.idCard}</td>
+                                <td>#{d.undertaker.name}</td>
+                                <td>#{d.undertaker.contact}</td>
+                                <td>#{d.undertaker.email}</td>
+                                <td>#{d.dod}</td>
+                                <td>#{d.dob}</td>
+                                <td>#{d.gender}</td>
+                                <td>#{d.status}</td>
+                                <td><h:commandButton styleClass="btn btn-success" value="UPDATE" action="#{man.updateDeadP(d)}"/> </td>
+                                <td><h:commandButton styleClass="btn btn-danger" value="DELETE" action="#{man.deleteDeadp(d)}"/> </td>
+
+                            </tr>
+                        </ui:repeat>
+
+                    </tbody>
+                </table>
+                <h:commandLink value="Return" action="undertaker.xhtml?faces-redirect=true"/>
+            </h:form>
+
+        </div>
+        <footer class="page-footer font-medium cyan darken-3 bg-primary">
+            <div  class="footer-copyright text-center py-3 ">@ 2020 Copyright:NGABO
+
+            </div>
+        </footer>
+    </h:body>
+</html>
+

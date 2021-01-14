@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Login </title>
+        <h:outputStylesheet name="bootstrap-4.4.1-dist/css/bootstrap.min.css"/>
+        <h:outputStylesheet name="bootstrap-4.4.1-dist/js/bootstrap.min.js"/>
+        <style>
+
+        </style>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <h4 class="navbar-brand">MANAGER DASHBOARD</h4>
+            <h4 class="navbar-brand" >Manager: #{userinfo.userName} </h4>
+            <h:graphicImage />
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <h4 class="navbar-brand"> This is the cemetery management system </h4>
+        </nav>
+
+
+        <div class="row">
+
+            <div class="col-4 bg-dark  m-6">
+
+                <h:form>
+
+                    <div class="col mt-3">
+                        <h:commandButton styleClass="form-control " value="Record DeadPerson" action="undertaker.xhtml?faces-redirect=true"/>
+                        <div class="col mt-3">
+                            <h:commandButton styleClass="form-control" value="DeadPerson Info" action="deadPersonInfo.xhtml?faces-redirect=true"/>
+                        </div>
+                        <div class="col mt-3">
+                            <h:commandButton styleClass="form-control" value="Record Cemetery" action="cemetery.xhtml?faces-redirect=true"/>
+                        </div>
+                        <div class="col mt-3">
+                            <h:commandButton styleClass="form-control" value="Record Grave" action="gravee.xhtml?faces-redirect=true"/>
+                        </div>
+                        <div class="col mt-3">
+                            <h:commandButton styleClass="form-control" value="Cemetery display" action="cemeteryDisplay.xhtml?faces-redirect=true"/>
+                        </div>
+                        <div class="col mt-3">
+                            <h:commandButton styleClass="form-control" value="Grave Info" action="displayGrave.xhtml?faces-redirect=true"/>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col mt-5">  
+                            <h:commandButton class="btn btn-primary" value="logout" action="#{lm.logoutt()}"/>
+                        </div>
+                        <div class="col mt-5">
+
+                        </div>
+                    </div>
+
+                </h:form>
+                <h:form>
+
+                </h:form>
+            </div>
+            <div class="col">
+                <ui:insert name="content"/>
+            </div>
+        </div>
+        <footer class="page-footer font-small cyan darken-3 bg-dark" style="margin-bottom: 0">
+            <div  class="footer-copyright text-center py-3 ">@ 2020 Copyright:NGABO
+
+            </div>
+        </footer>
+    </h:body>
+</html>
+
